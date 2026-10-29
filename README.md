@@ -30,6 +30,49 @@ Each session includes learning outcomes, explanations, practical tasks, review q
 5. [Session 05 — Power Distribution, Ground & Protection](./sessions/Session-05_Power-Distribution-Ground-Protection.ipynb)
 6. [Session 06 — Assembly, Integration & Troubleshooting](./sessions/Session-06_Assembly-Integration-Troubleshooting.ipynb)
 
+
+## Quick answer key (README reference)
+
+### Session 01 — Programming Fundamentals
+- A program is executable instructions; an algorithm is an ordered problem-solving method.
+- A variable stores a value under a name; a data type describes the value representation.
+- `x > 5` is true only when x is strictly greater than 5.
+- `for (int i = 0; i < 4; i++)` repeats four times.
+- `setup()` runs once after startup/reset; `loop()` repeats.
+- Motors and pumps require suitable driver hardware and power; do not connect them directly to GPIO.
+
+### Session 02 — Digital I/O
+- `pinMode(pin, INPUT)` configures a digital input.
+- Active-low means the active state is LOW; verify module behavior.
+- Serial Monitor helps inspect raw values before adding decision logic.
+- ESP32 GPIO is generally 3.3 V logic and is not 5 V tolerant.
+
+### Session 03 — DC Motor / H-Bridge / PWM
+- An H-Bridge/driver switches motor current direction.
+- PWM varies the switching duty cycle; it does not guarantee exact RPM.
+- Verify motor direction and stop behavior against the actual driver truth table.
+- Test with wheels lifted and a physical disconnect accessible.
+
+### Session 04 — Sensors / Servo / Relay / Pump
+- Keep raw sensor reading separate from decision logic.
+- Verify sensor polarity and relay active level before connecting a load.
+- A pump needs a properly rated driver/relay and power circuit.
+- Invalid input or timeout should return the system to a defined safe state.
+
+### Session 05 — Power / Startup / Fault Handling
+- Common ground provides a shared signal reference where the approved interface requires it.
+- Measure buck-converter output before connecting loads.
+- Software cannot replace proper wiring, protection, component ratings, or a physical disconnect.
+- A timeout or invalid command should trigger the documented safe/fault state.
+
+### Session 06 — Integration / Troubleshooting
+- Unit tests check a function; integration tests check modules and interfaces working together.
+- A successful compile does not prove correct wiring or safe system behavior.
+- Test startup, inactive/active sensor, motor direction/stop, timeout, invalid input, pump simulation, and operator stop.
+- Final handover includes source code, README, approved pinout/wiring, test results, troubleshooting notes, and demonstration evidence.
+
+For full worked explanations, grading criteria, and session-by-session test ideas, see [INSTRUCTOR_GUIDE_AND_ANSWER_KEY.md](./INSTRUCTOR_GUIDE_AND_ANSWER_KEY.md).
+
 ## Practical Arduino code — ready to review and adapt
 
 1. [Project 01 — Blink](./projects/session-01-blink/Session01_Blink.ino)
